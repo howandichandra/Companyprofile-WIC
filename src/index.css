@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-wic-900 font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    @apply bg-wic-500 text-white;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Pattern grid background — kayak blueprint */
+  .bg-blueprint {
+    background-image:
+      linear-gradient(rgba(0, 102, 204, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 102, 204, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .bg-blueprint-light {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Soft radial glow */
+  .glow-blue {
+    background: radial-gradient(circle at center, rgba(0, 102, 204, 0.15) 0%, transparent 70%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-wic-50;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-wic-500 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-wic-700;
+}
+
+/* Marquee animation untuk principal logos */
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: scroll-x 30s linear infinite;
+}
